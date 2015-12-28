@@ -15,6 +15,7 @@ import random
 
 random.seed
 
+# First I start out with a valid grid
 grid = [[1, 2, 3, 4, 5, 6, 7, 8, 9],
 [4, 5, 6, 7, 8, 9, 1, 2, 3],
 [7, 8, 9, 1, 2, 3, 4, 5, 6],
@@ -29,18 +30,22 @@ grid = [[1, 2, 3, 4, 5, 6, 7, 8, 9],
 def shuffleRows():
     # This section shuffles rows within the same block
     randNum = random.randint(0,8)
+
+    # First block rows
     if(randNum < 2):
         nextRand = random.randint(0, 2)
         if( randNum != nextRand):
             tmp = grid[randNum]
             grid[randNum] = grid[nextRand]
             grid[nextRand] = tmp
+    # Second block rows
     elif(randNum < 5):
         nextRand = random.randint(2, 5)
         if( randNum != nextRand):
             tmp = grid[randNum]
             grid[randNum] = grid[nextRand]
             grid[nextRand] = tmp
+    # Third block rows
     else:
         nextRand = random.randint(5, 8)
         if( randNum != nextRand):
@@ -52,6 +57,8 @@ def shuffleRows():
 def shuffleCols():
     # This section shuffles columns within the same block
     randNum = random.randint(0,8)
+
+    # First block columns
     if(randNum < 2):
         nextRand = random.randint(0, 2)
         if( randNum != nextRand):
@@ -59,6 +66,7 @@ def shuffleCols():
                 tmp = grid[i][randNum]
                 grid[i][randNum] = grid[i][nextRand]
                 grid[i][nextRand] = tmp
+    # Second block columns
     elif(randNum < 5):
         nextRand = random.randint(2, 5)
         if( randNum != nextRand):
@@ -66,6 +74,7 @@ def shuffleCols():
                 tmp = grid[i][randNum]
                 grid[i][randNum] = grid[i][nextRand]
                 grid[i][nextRand] = tmp
+    # Third block columns
     else:
         nextRand = random.randint(5, 8)
         if( randNum != nextRand):
@@ -74,17 +83,20 @@ def shuffleCols():
                 grid[i][randNum] = grid[i][nextRand]
                 grid[i][nextRand] = tmp
 
+# This function just prints out the grid
 def printGrid():
     for i in range(9):
         for j in range(9):
             print(grid[i][j], end=" ")
             if((j + 1) % 3 == 0 and  j != 8):
-                print("|", end="")
+                print("|", end="")              # Print a dividing column for the 3 major breaks
 
         print("", end="\n")
         if ( (i + 1) % 3 == 0 and i != 8):
-            print("-------------------")
+            print("-------------------")        # Print out a dividing row for the major breaks
 
+
+# Shuffle the grid up for a new puzzle
 shuffle = random.randint(20, 30)
 for i in range(shuffle):
     shuffleRows()
