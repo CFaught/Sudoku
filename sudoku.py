@@ -32,22 +32,22 @@ def shuffleRows():
     randNum = random.randint(0,8)
 
     # First block rows
-    if(randNum < 2):
+    if(randNum <= 2):
         nextRand = random.randint(0, 2)
         if( randNum != nextRand):
             tmp = grid[randNum]
             grid[randNum] = grid[nextRand]
             grid[nextRand] = tmp
     # Second block rows
-    elif(randNum < 5):
-        nextRand = random.randint(2, 5)
+    elif(randNum <= 5):
+        nextRand = random.randint(3, 5)
         if( randNum != nextRand):
             tmp = grid[randNum]
             grid[randNum] = grid[nextRand]
             grid[nextRand] = tmp
     # Third block rows
     else:
-        nextRand = random.randint(5, 8)
+        nextRand = random.randint(6, 8)
         if( randNum != nextRand):
             tmp = grid[randNum]
             grid[randNum] = grid[nextRand]
@@ -59,7 +59,7 @@ def shuffleCols():
     randNum = random.randint(0,8)
 
     # First block columns
-    if(randNum < 2):
+    if(randNum <= 2):
         nextRand = random.randint(0, 2)
         if( randNum != nextRand):
             for i in range(9):
@@ -67,8 +67,8 @@ def shuffleCols():
                 grid[i][randNum] = grid[i][nextRand]
                 grid[i][nextRand] = tmp
     # Second block columns
-    elif(randNum < 5):
-        nextRand = random.randint(2, 5)
+    elif(randNum <= 5):
+        nextRand = random.randint(3, 5)
         if( randNum != nextRand):
             for i in range(9):
                 tmp = grid[i][randNum]
@@ -76,7 +76,7 @@ def shuffleCols():
                 grid[i][nextRand] = tmp
     # Third block columns
     else:
-        nextRand = random.randint(5, 8)
+        nextRand = random.randint(6, 8)
         if( randNum != nextRand):
             for i in range(9):
                 tmp = grid[i][randNum]
